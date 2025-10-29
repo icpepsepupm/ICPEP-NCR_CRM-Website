@@ -1,13 +1,7 @@
 import Hero from "../sections/Hero";
-import Footer from "@/sections/Footer";
 
 function HomePage() {
-  return (
-    <>
-      <Hero />
-      <Footer />
-    </>
-  );
+  return <Hero />;
 }
 
 export default HomePage;
