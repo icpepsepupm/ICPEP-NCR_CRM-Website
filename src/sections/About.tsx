@@ -8,10 +8,10 @@ export default function About() {
         
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-4 [text-shadow:0_0_20px_rgb(59,130,246),0_0_40px_rgb(59,130,246)]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400 mb-4 [text-shadow:0_0_20px_rgb(59,130,246),0_0_40px_rgb(59,130,246)]">
             About Our Chapter
           </h2>
-          <p className="text-lg text-gray-300 mx-auto w-150 text-justify">
+          <p className="text-base sm:text-lg text-gray-300 mx-auto max-w-2xl text-justify px-4 sm:px-0">
             ICPEP is a dynamic student organization fostering collaboration, innovation, and growth in computer engineering.
           </p>
         </div>
