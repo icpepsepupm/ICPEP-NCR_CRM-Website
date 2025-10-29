@@ -44,7 +44,7 @@ const Vision = () => {
               </h1>
               <p className="md:text-lg text-foreground/60 leading-6 md:leading-7 font-sans">
                 To be the leading platform for computer science professionals in
-                the NCR region, fostoring innovation, collaboration, and
+                the NCR region, fostering innovation, collaboration, and
                 excellence in technology.
               </p>
             </div>
@@ -57,7 +57,7 @@ const Vision = () => {
                 </AccordionTrigger>
                 <AccordionContent className="md:text-lg text-foreground/60 leading-6 md:leading-7 font-sans">
                   To be the leading platform for computer science professionals
-                  in the NCR region, fostoring innovation, collaboration, and
+                  in the NCR region, fostering innovation, collaboration, and
                   excellence in technology.
                 </AccordionContent>
               </AccordionItem>
