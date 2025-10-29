@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="w-full flex justify-center items-center">
       <div className="container">
-        <div className="w-full text-foreground/60 flex flex-col md:flex-row justify-between items-start gap-10 px-10 md:px-24 pt-8">
+        <div className="w-full text-foreground/60 flex flex-col md:flex-row justify-between items-start gap-10 px-8 md:px-24 pt-8">
           {/* #2 */}
           <section className="flex-4 md:max-w-1/3">
             <div className="flex flex-row justify-start items-center gap-8">

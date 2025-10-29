@@ -35,7 +35,7 @@ const Vision = () => {
   return (
     <section className="w-full flex justify-center items-center">
       <div className="container">
-        <div className="w-full h-screen flex justify-center items-center gap-12 p-10 md:p-20 lg:40">
+        <div className="w-full h-screen flex justify-center items-center gap-12 p-8 md:p-24">
           <div className="flex-1 space-y-8">
             {/* desktop view */}
             <div className="hidden md:block space-y-8">
@@ -52,8 +52,10 @@ const Vision = () => {
             {/* mobile view */}
             <Accordion type="single" collapsible className="py-0 mb-0">
               <AccordionItem value="vission" className="md:hidden space-y-2">
-                <AccordionTrigger className="text-2xl md:text-3xl font-sans text-glow text-primary font-bold tracking-tight">
-                  Our Vision
+                <AccordionTrigger>
+                  <h1 className="text-2xl md:text-3xl font-sans text-glow text-primary font-bold tracking-tight">
+                    Our Vision
+                  </h1>
                 </AccordionTrigger>
                 <AccordionContent className="md:text-lg text-foreground/60 leading-6 md:leading-7 font-sans">
                   To be the leading platform for computer science professionals

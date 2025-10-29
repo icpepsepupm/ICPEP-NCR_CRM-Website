@@ -9,7 +9,7 @@ import { chapterFeatures } from "../lib/about_constants"; // Import the content 
 
 export default function About() {
   return (
-    <main className="min-h-screen flex justify-center items-center stone-950 p-8 md:p-20">
+    <main className="min-h-screen flex justify-center items-center stone-950 p-8 md:p-24">
       <section className="container">
         <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-8">
           {/*desktop view header */}
