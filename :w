@@ -123,12 +123,20 @@
 @layer utilities {
   .text-glow {
     text-shadow:
-      0 0 12px currentColor,
-      0 0 24px rgba(59, 130, 246, 0.45);
+      0 0 6px currentColor,
+      0 0 18px rgba(59, 130, 246, 0.45);
   }
   .text-glow-soft {
     text-shadow:
-      0 0 6px currentColor,
-      0 0 12px rgba(99, 102, 241, 0.35);
+      0 0 4px currentColor,
+      0 0 10px rgba(99, 102, 241, 0.35);
+  }
+  .mask-fade-circle {
+    -webkit-mask-image: radial-gradient(
+      circle,
+      var(--primary) 65%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(circle, var(--primary) 65%, transparent 100%);
   }
 }
