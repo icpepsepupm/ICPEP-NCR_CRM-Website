@@ -42,7 +42,7 @@ const Vision = () => {
               <h1 className="text-2xl md:text-3xl text-glow text-primary font-bold tracking-tight">
                 Our Vision
               </h1>
-              <p className="md:text-lg text-foreground/60 leading-6 md:leading-7 font-sans">
+              <p className="md:text-lg text-foreground/60 leading-6 md:leading-7 ">
                 To be the leading platform for computer science professionals in
                 the NCR region, fostering innovation, collaboration, and
                 excellence in technology.
