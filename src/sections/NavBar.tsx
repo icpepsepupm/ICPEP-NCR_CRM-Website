@@ -52,7 +52,7 @@ function NavBar() {
               );
             })}
             <a
-              href="#join-us"
+              href="/join-us"
               className="ml-2 inline-flex items-center rounded-lg border border-border/60 bg-secondary/40 px-3 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-secondary/60 transition-colors"
             >
               Join Us
@@ -127,7 +127,7 @@ function NavBar() {
                 );
               })}
               <a
-                href="#join-us"
+                href="/join-us"
                 onClick={() => setOpen(false)}
                 className="px-4 py-3 text-sm text-foreground/80 hover:text-foreground transition-colors"
               >
