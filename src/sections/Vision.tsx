@@ -39,7 +39,7 @@ const Vision = () => {
           <div className="flex-1 space-y-8">
             {/* desktop view */}
             <div className="hidden md:block space-y-8">
-              <h1 className="text-2xl md:text-3xl font-sans text-glow text-primary font-bold tracking-tight">
+              <h1 className="text-2xl md:text-3xl text-glow text-primary font-bold tracking-tight">
                 Our Vision
               </h1>
               <p className="md:text-lg text-foreground/60 leading-6 md:leading-7 font-sans">
@@ -53,7 +53,7 @@ const Vision = () => {
             <Accordion type="single" collapsible className="py-0 mb-0">
               <AccordionItem value="vission" className="md:hidden space-y-2">
                 <AccordionTrigger>
-                  <h1 className="text-2xl md:text-3xl font-sans text-glow text-primary font-bold tracking-tight">
+                  <h1 className="text-2xl md:text-3xl text-glow text-primary font-bold tracking-tight">
                     Our Vision
                   </h1>
                 </AccordionTrigger>
@@ -68,7 +68,7 @@ const Vision = () => {
             {/* mobile view */}
             <BuildCard className="lg:hidden py-20 [&>h1]:text-6xl [&>span]:text-xs" />
 
-            <ul className="list-disc text-sm md:text-lg pl-4 font-sans space-y-3">
+            <ul className="list-disc text-sm md:text-lg pl-4 space-y-3">
               <li className="marker:text-primary">Empower professionals</li>
               <li className="marker:text-primary">Drive Innovation</li>
               <li className="marker:text-primary">Build Community</li>

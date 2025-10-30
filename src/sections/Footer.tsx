@@ -31,18 +31,18 @@ const Footer = () => {
 
           {/* #2 */}
           <section className="w-auto flex flex-col gap-4">
-            <h2 className="text-lg md:text-xl font-sans text-foreground font-extrabold tracking-tight">
+            <h2 className="text-lg md:text-xl text-foreground font-extrabold tracking-tight">
               Quick Links
             </h2>
             <a
               href="/"
-              className="text-sm md:text-lg font-sans hover:underline transition-all duration-300"
+              className="text-sm md:text-lg hover:underline transition-all duration-300"
             >
               Home
             </a>
             <a
               href="/about"
-              className="text-sm md:text-lg font-sans hover:underline transition-all duration-300"
+              className="text-sm md:text-lg hover:underline transition-all duration-300"
             >
               About
             </a>
@@ -50,7 +50,7 @@ const Footer = () => {
 
           {/* #3 */}
           <section className="w-auto space-y-4 text-foreground">
-            <h2 className="text-lg md:text-xl font-sans font-extrabold tracking-tight">
+            <h2 className="text-lg md:text-xl font-extrabold tracking-tight">
               Get In Touch
             </h2>
             <div className="flex gap-4 [&>a:hover]:scale-110 [&>a:active]:scale-90 transition-all duration-300">
