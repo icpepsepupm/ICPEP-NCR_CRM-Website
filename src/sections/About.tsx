@@ -4,7 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import FeatureCard from "../components/featureCard"; // Use the recommended @/ alias
+import FeatureCard from "../components/featureCard";
 import { HiLightningBolt } from "react-icons/hi";
 import { FaHeart } from "react-icons/fa6";
 import { GiGraduateCap } from "react-icons/gi";
@@ -41,7 +41,7 @@ export default function About() {
   return (
     <main className="min-h-screen flex justify-center items-center stone-950 p-8 md:p-24">
       <section className="container">
-        <div className="w-full flex flex-col justify-center items-center gap-6 md:gap-8 lg:gap-12">
+        <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-8 lg:gap-12">
           {/*desktop view header */}
           <div className="hidden sm:flex flex-col justify-center gap-4 lg:gap-8">
             <h2 className="w-full md:text-center text-xl md:text-2xl lg:text-4xl font-extrabold text-primary text-glow tracking-tight">
@@ -52,10 +52,8 @@ export default function About() {
               innovation, and growth in computer engineering.
             </p>
           </div>
-
-          {/* Feature Grid: This is the key layout section */}
-          <div className="hidden sm:grid grid-cols-2 xl:grid-cols-4 gap-2 md:gap-4 lg:gap-6">
-            {/* Map over the imported data and render one Card component for each item */}
+          {/*desktop view cards */}
+          <div className="hidden sm:grid grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
             {chapterFeatures.map((feature, index) => (
               <FeatureCard
                 key={index}
@@ -67,37 +65,27 @@ export default function About() {
           </div>
 
           {/*mobile view header */}
+          <div className="sm:hidden space-y-4">
+            <h1 className="text-xl font-extrabold text-primary text-glow tracking-tight">
+              About Our Chapter
+            </h1>
+            <div className="text-sm text-foreground leading-6 md:leading-7 p-4 rounded-lg bg-primary/10 border border-primary/15">
+              ICPEP is a dynamic student organization fostering collaboration,
+              innovation, and growth in computer engineering.
+            </div>
+          </div>
+
+          {/*mobile view cards */}
           <Accordion
             type="single"
             collapsible
             defaultValue="about-our-chapter"
             className="sm:hidden w-full"
           >
-            <AccordionItem
-              value="about-our-chapter"
-              className="md:hidden space-y-4 border-none"
-            >
-              <AccordionTrigger className="p-0 flex justify-between items-center">
-                <h1 className="text-xl font-extrabold text-primary text-glow tracking-tight">
-                  About Our Chapter
-                </h1>
-              </AccordionTrigger>
-              <AccordionContent className="text-sm text-foreground/60 leading-6 md:leading-7">
-                <div className="p-4 rounded-lg bg-primary/10 border border-primary/15">
-                  ICPEP is a dynamic student organization fostering
-                  collaboration, innovation, and growth in computer engineering.
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-
             {chapterFeatures.map((feature, i) => {
               const FeatureIcon = feature.icon;
               return (
-                <AccordionItem
-                  key={i}
-                  value={feature.title}
-                  className="border-none"
-                >
+                <AccordionItem key={i} value={feature.title}>
                   <AccordionTrigger>
                     <div className="flex justify-start items-center gap-2">
                       <FeatureIcon className="size-4 text-primary" />
@@ -106,10 +94,8 @@ export default function About() {
                       </h3>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="text-foreground/80 text-sm">
-                    <div className="p-4 rounded-lg bg-primary/10 border border-primary/15">
-                      {feature.description}
-                    </div>
+                  <AccordionContent className="ml-6 text-foreground/80 text-sm">
+                    {feature.description}
                   </AccordionContent>
                 </AccordionItem>
               );
