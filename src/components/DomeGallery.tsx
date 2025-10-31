@@ -22,6 +22,12 @@ type DomeGalleryProps = {
   imageBorderRadius?: string;
   openedImageBorderRadius?: string;
   grayscale?: boolean;
+  /** Enable slow automatic rotation by default */
+  autoRotate?: boolean;
+  /** Rotation speed in degrees per second (positive = clockwise) */
+  autoRotateSpeedDegPerSec?: number;
+  /** Pause duration after interaction before auto-rotate resumes (ms) */
+  autoRotateIdleMs?: number;
 };
 
 type ItemDef = {
@@ -199,6 +205,9 @@ export default function DomeGallery({
   imageBorderRadius = "30px",
   openedImageBorderRadius = "30px",
   grayscale = false,
+  autoRotate = true,
+  autoRotateSpeedDegPerSec = 1,
+  autoRotateIdleMs = 2000,
 }: DomeGalleryProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -226,6 +235,13 @@ export default function DomeGallery({
   const openingRef = useRef(false);
   const openStartedAtRef = useRef(0);
   const lastDragEndAt = useRef(0);
+  const lastInteractionAtRef = useRef(0);
+  const autoRAFRef = useRef<number | null>(null);
+  const lastAutoTsRef = useRef<number | null>(null);
+
+  const recordInteraction = useCallback(() => {
+    lastInteractionAtRef.current = performance.now();
+  }, []);
 
   const scrollLockedRef = useRef(false);
   const lockScroll = useCallback(() => {
@@ -393,6 +409,7 @@ export default function DomeGallery({
   useGesture(
     {
       onDragStart: ({ event }) => {
+        recordInteraction();
         if (focusedElRef.current) return;
         stopInertia();
 
@@ -417,6 +434,7 @@ export default function DomeGallery({
         direction: dirArr = [0, 0],
         movement,
       }) => {
+        recordInteraction();
         if (
           focusedElRef.current ||
           !draggingRef.current ||
@@ -485,6 +503,7 @@ export default function DomeGallery({
           cancelTapRef.current = !isTap;
 
           if (isTap && tapTargetRef.current && !focusedElRef.current) {
+            recordInteraction();
             openItemFromElement(tapTargetRef.current);
           }
           tapTargetRef.current = null;
@@ -499,6 +518,52 @@ export default function DomeGallery({
     },
     { target: mainRef, eventOptions: { passive: false } }
   );
+
+  // Default rolling animation (auto-rotate)
+  useEffect(() => {
+    if (!autoRotate) return;
+    const tick = (ts: number) => {
+      const isEnlarging =
+        rootRef.current?.getAttribute("data-enlarging") === "true";
+      const interactedRecently =
+        performance.now() - lastInteractionAtRef.current < autoRotateIdleMs;
+      const shouldPause =
+        draggingRef.current ||
+        focusedElRef.current != null ||
+        openingRef.current ||
+        isEnlarging ||
+        interactedRecently;
+
+      if (!shouldPause) {
+        const lastTs = lastAutoTsRef.current ?? ts;
+        const dt = Math.max(0, ts - lastTs);
+        const dy = (autoRotateSpeedDegPerSec * dt) / 1000;
+        const nextY = wrapAngleSigned(rotationRef.current.y + dy);
+        rotationRef.current = {
+          x: clamp(
+            rotationRef.current.x,
+            -maxVerticalRotationDeg,
+            maxVerticalRotationDeg
+          ),
+          y: nextY,
+        };
+        applyTransform(rotationRef.current.x, nextY);
+      }
+      lastAutoTsRef.current = ts;
+      autoRAFRef.current = requestAnimationFrame(tick);
+    };
+    autoRAFRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (autoRAFRef.current) cancelAnimationFrame(autoRAFRef.current);
+      autoRAFRef.current = null;
+      lastAutoTsRef.current = null;
+    };
+  }, [
+    autoRotate,
+    autoRotateSpeedDegPerSec,
+    autoRotateIdleMs,
+    maxVerticalRotationDeg,
+  ]);
 
   useEffect(() => {
     const scrim = scrimRef.current;
