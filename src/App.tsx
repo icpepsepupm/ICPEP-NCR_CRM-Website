@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
+const HomePage = lazy(() => import("./pages/HomePage"));
+const AboutPage = lazy(() => import("./pages/AboutPage"));
 import NavBar from "./sections/NavBar";
-import JoinUsPage from "./pages/JoinUsPage";
+const JoinUsPage = lazy(() => import("./pages/JoinUsPage"));
 import { AnimatePresence, motion } from "framer-motion";
 
 const routes = [
@@ -28,7 +28,7 @@ const AnimatedRoutes = () => {
                 exit={{ opacity: 0, y: -24 }}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
               >
-                {route.element}
+                <Suspense fallback={null}>{route.element}</Suspense>
               </motion.div>
             }
           />
@@ -45,7 +45,7 @@ function App() {
 
   useEffect(() => {
     document.documentElement.classList.add("dark");
-    const delayId = window.setTimeout(() => setIsMinDelayDone(true), 500);
+    const delayId = window.setTimeout(() => setIsMinDelayDone(true), 0);
     if (document.readyState === "complete") {
       setIsDomLoaded(true);
     }
@@ -66,7 +66,7 @@ function App() {
     <BrowserRouter>
       {isAppLoading && <AppLoader />}
       <NavBar />
-      <div className="pt-16">
+      <div className="">
         <AnimatedRoutes />
       </div>
     </BrowserRouter>

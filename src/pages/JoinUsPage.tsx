@@ -1,11 +1,7 @@
 import JoinUs from "@/sections/JoinUs";
 
 function JoinUsPage() {
-  return (
-    <>
-      <JoinUs />
-    </>
-  );
+  return <JoinUs />;
 }
 
 export default JoinUsPage;

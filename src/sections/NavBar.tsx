@@ -8,6 +8,7 @@ function NavBar() {
   const navItems = [
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
+    { to: "/join-us", label: "Join Us" },
   ];
 
   return (
@@ -51,12 +52,6 @@ function NavBar() {
                 </Link>
               );
             })}
-            <a
-              href="/join-us"
-              className="ml-2 inline-flex items-center rounded-lg border border-border/60 bg-secondary/40 px-3 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-secondary/60 transition-colors"
-            >
-              Join Us
-            </a>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -126,13 +121,6 @@ function NavBar() {
                   </Link>
                 );
               })}
-              <a
-                href="/join-us"
-                onClick={() => setOpen(false)}
-                className="px-4 py-3 text-sm text-foreground/80 hover:text-foreground transition-colors"
-              >
-                Join Us
-              </a>
               <a
                 href="#login"
                 onClick={() => setOpen(false)}

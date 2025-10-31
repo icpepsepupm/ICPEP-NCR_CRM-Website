@@ -1,13 +1,16 @@
-import Embed3DModel from "../components/Embed3DModel";
+import { lazy, Suspense } from "react";
+const Embed3DModel = lazy(() => import("../components/Embed3DModel"));
 import { Button } from "../components/ui/button";
 import CountUp from "../components/CountUp";
 
 function Hero() {
   return (
-    <div className="h-screen text-foreground flex flex-col md:flex-row items-center justify-center m-auto px- md:px-8 gap-8 md:gap-0 text-center md:text-left">
+    <div className="h-screen text-foreground pt-20 flex flex-col md:flex-row items-center justify-center m-auto px- md:px-8 gap-8 md:gap-0 text-center md:text-left">
       <div className="w-full md:w-1/2">
         <div className="relative w-full h-64 sm:h-80 md:h-[80vh]  space-y-8 md:space-y-0">
-          <Embed3DModel />
+          <Suspense fallback={null}>
+            <Embed3DModel />
+          </Suspense>
         </div>
       </div>
       <div>
