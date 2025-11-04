@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useCallback } from "react";
 import { useGesture } from "@use-gesture/react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 type ImageItem = string | { src: string; alt?: string };
 
@@ -1088,8 +1089,9 @@ export default function DomeGallery({
               className="mt-4 border border-opacity-100"
               style={{ borderColor: "#89E9FF" }}
               variant="outline"
+              asChild
             >
-              Register
+              <Link to="/register">Register</Link>
             </Button>
           </div>
 

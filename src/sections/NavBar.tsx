@@ -14,7 +14,7 @@ function NavBar() {
   return (
     <header className="fixed top-4 left-0 right-0 z-50 ">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-4 flex h-16 items-center justify-between rounded-xl border border-border/60 bg-background/50 backdrop-blur supports-backdrop-filter:bg-background/40">
+        <div className="mx-0x flex h-16 items-center justify-between rounded-xl border border-border/60 bg-background/50 backdrop-blur supports-backdrop-filter:bg-background/40">
           <div className="flex items-center gap-3">
             <Link
               to="/"
@@ -55,12 +55,12 @@ function NavBar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              href="#login"
-              className="hidden md:inline-flex items-center mr-4 rounded-lg border border-border/60 bg-secondary/40 px-3 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-secondary/60 transition-colors"
-            >
-              Login
-            </a>
+            <Link to="#login">
+              <a className="hidden md:inline-flex items-center mr-4 rounded-lg border border-border/60 bg-secondary/40 px-3 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-secondary/60 transition-colors">
+                Login
+              </a>
+            </Link>
+
             <button
               aria-label="Toggle menu"
               className="md:hidden px-3 py-2 text-foreground/80 hover:text-foreground"
