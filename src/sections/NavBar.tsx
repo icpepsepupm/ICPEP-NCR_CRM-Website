@@ -22,7 +22,7 @@ function NavBar() {
               aria-label="ICpEP.SE NCR Home"
             >
               <img
-                src="/ICpEP.SE Logo 3.png"
+                src="/ICpEP-SE.png"
                 alt="ICpEP.SE NCR"
                 className="h-8 w-auto select-none"
                 draggable="false"
