@@ -2,13 +2,6 @@ import { Separator } from "@/components/ui/separator";
 import { FaFacebookSquare } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
 
-const quickLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Join Us", href: "/join-us" },
-  { name: "Login", href: "#login" },
-];
-
 const Footer = () => {
   return (
     <footer className="w-full flex justify-center items-center py-8 px-6 sm:py-10 sm:px-8 md:py-12 md:px-12 lg:px-24">
@@ -91,13 +84,10 @@ const Footer = () => {
         </div>
 
         <div className="w-full px-8 md:px-12 text-foreground/60">
-          <p className="hidden md:block lg:hidden mt-8 text-xs md:text-sm leading-normal tracking-tight ">
+          <p className="hidden md:block lg:hidden mt-8 text-xs md:text-sm leading-normal tracking-tight">
             Institute of Computer Engineers of The Philippines Student Edition –
             National Capital Region
           </p>
-          <Separator className="mt-8" />
-          <p className="text-center text-xs md:text-sm my-8 ">
-        <div className="w-full text-foreground/60">
           <Separator className="mt-6 md:mt-8" />
           <p className="text-center text-xs sm:text-sm my-6 md:my-8 leading-relaxed px-2">
             © 2025 ICPEP SE - NCR. All rights reserved. | Creating Pioneers for

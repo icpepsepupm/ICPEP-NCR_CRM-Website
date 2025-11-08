@@ -29,7 +29,7 @@ const faqData: FAQItem[] = [
   {
     question: "Is there a membership fee?",
     answer:
-      "Yes, there is a nominal membership fee that helps support our activities, events, and resources. The fee varies depending on your membership type and helps us maintain our programs and provide valuable opportunities to all members.",
+      "Details regarding the membership fee will be announced soon. Please stay tuned to our official announcements and updates for the latest information about fees and payment procedures.",
   },
   {
     question: "What are the benefits of joining ICpEP.se NCR?",
@@ -39,7 +39,7 @@ const faqData: FAQItem[] = [
   {
     question: "How do I join ICpEP.se NCR?",
     answer:
-      "To join ICpEP.se NCR, you must first be a member of your school's local ICpEP.SE chapter. If your school doesn't have a chapter yet, you can contact us to learn about establishing one. Once you're a member of a local chapter, you automatically become part of the NCR regional network. Visit our Join Us page or contact our membership committee for more details.",
+      "Membership details will be announced soon. Stay tuned through our facebook page for updates!",
   },
 ];
 

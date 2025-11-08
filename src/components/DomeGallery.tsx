@@ -415,7 +415,8 @@ export default function DomeGallery({
         stopInertia();
 
         const evt = event as PointerEvent;
-        pointerTypeRef.current = (evt.pointerType as any) || "mouse";
+        pointerTypeRef.current =
+          (evt.pointerType as "mouse" | "pen" | "touch") || "mouse";
         if (pointerTypeRef.current === "touch") evt.preventDefault();
         if (pointerTypeRef.current === "touch") lockScroll();
         draggingRef.current = true;
@@ -481,7 +482,7 @@ export default function DomeGallery({
             }
           }
 
-          let [vMagX, vMagY] = velArr;
+          const [vMagX, vMagY] = velArr;
           const [dirX, dirY] = dirArr;
           let vx = vMagX * dirX;
           let vy = vMagY * dirY;
@@ -591,7 +592,7 @@ export default function DomeGallery({
         parent.style.setProperty("--rot-y-delta", `0deg`);
         parent.style.setProperty("--rot-x-delta", `0deg`);
         el.style.visibility = "";
-        (el.style as any).zIndex = 0;
+        el.style.zIndex = "0";
         focusedElRef.current = null;
         rootRef.current?.removeAttribute("data-enlarging");
         openingRef.current = false;
@@ -668,7 +669,7 @@ export default function DomeGallery({
         requestAnimationFrame(() => {
           el.style.visibility = "";
           el.style.opacity = "0";
-          (el.style as any).zIndex = 0;
+          el.style.zIndex = "0";
           focusedElRef.current = null;
           rootRef.current?.removeAttribute("data-enlarging");
 
@@ -763,7 +764,7 @@ export default function DomeGallery({
       height: tileR.height,
     };
     el.style.visibility = "hidden";
-    (el.style as any).zIndex = 0;
+    el.style.zIndex = "0";
     const overlay = document.createElement("div");
     overlay.className = "enlarge";
     overlay.style.cssText = `position:absolute; left:${
@@ -945,12 +946,12 @@ export default function DomeGallery({
         className="sphere-root relative w-full h-full"
         style={
           {
-            ["--segments-x" as any]: segments,
-            ["--segments-y" as any]: segments,
-            ["--overlay-blur-color" as any]: overlayBlurColor,
-            ["--tile-radius" as any]: imageBorderRadius,
-            ["--enlarge-radius" as any]: openedImageBorderRadius,
-            ["--image-filter" as any]: grayscale ? "grayscale(1)" : "none",
+            "--segments-x": String(segments),
+            "--segments-y": String(segments),
+            "--overlay-blur-color": overlayBlurColor,
+            "--tile-radius": imageBorderRadius,
+            "--enlarge-radius": openedImageBorderRadius,
+            "--image-filter": grayscale ? "grayscale(1)" : "none",
             opacity: 1,
           } as React.CSSProperties
         }
@@ -979,10 +980,10 @@ export default function DomeGallery({
                     data-size-y={it.sizeY}
                     style={
                       {
-                        ["--offset-x" as any]: it.x,
-                        ["--offset-y" as any]: it.y,
-                        ["--item-size-x" as any]: it.sizeX,
-                        ["--item-size-y" as any]: it.sizeY,
+                        "--offset-x": String(it.x),
+                        "--offset-y": String(it.y),
+                        "--item-size-x": String(it.sizeX),
+                        "--item-size-y": String(it.sizeY),
                         top: "-999px",
                         bottom: "-999px",
                         left: "-999px",
@@ -1043,14 +1044,14 @@ export default function DomeGallery({
             </div>
 
             <div
-              className="absolute inset-0 m-auto z-[3] pointer-events-none"
+              className="absolute inset-0 m-auto z-3 pointer-events-none"
               style={{
                 backgroundImage: `radial-gradient(rgba(235, 235, 235, 0) 65%, var(--overlay-blur-color, ${overlayBlurColor}) 100%)`,
               }}
             />
 
             <div
-              className="absolute inset-0 m-auto z-[3] pointer-events-none"
+              className="absolute inset-0 m-auto z-3 pointer-events-none"
               style={{
                 WebkitMaskImage: `radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, ${overlayBlurColor}) 90%)`,
                 maskImage: `radial-gradient(rgba(235, 235, 235, 0) 70%, var(--overlay-blur-color, ${overlayBlurColor}) 90%)`,
@@ -1059,13 +1060,13 @@ export default function DomeGallery({
             />
 
             <div
-              className="absolute left-0 right-0 top-0 h-[120px] z-[5] pointer-events-none rotate-180"
+              className="absolute left-0 right-0 top-0 h-[120px] z-5 pointer-events-none rotate-180"
               style={{
                 background: `linear-gradient(to bottom, transparent, var(--overlay-blur-color, ${overlayBlurColor}))`,
               }}
             />
             <div
-              className="absolute left-0 right-0 bottom-0 h-[120px] z-[5] pointer-events-none"
+              className="absolute left-0 right-0 bottom-0 h-[120px] z-5 pointer-events-none"
               style={{
                 background: `linear-gradient(to bottom, transparent, var(--overlay-blur-color, ${overlayBlurColor}))`,
               }}
@@ -1073,7 +1074,7 @@ export default function DomeGallery({
           </div>
 
           {/* Centered content from JoinUs.tsx (63-70) */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-[15] pointer-events-auto gap-2">
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-15 pointer-events-auto gap-2">
             <h1 className="text-4xl md:text-6xl text-center font-bold text-primary text-glow">
               ICpEP.se NCR
             </h1>
