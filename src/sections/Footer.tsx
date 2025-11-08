@@ -84,10 +84,6 @@ const Footer = () => {
         </div>
 
         <div className="w-full px-8 md:px-12 text-foreground/60">
-          <p className="hidden md:block lg:hidden mt-8 text-xs md:text-sm leading-normal tracking-tight">
-            Institute of Computer Engineers of The Philippines Student Edition –
-            National Capital Region
-          </p>
           <Separator className="mt-6 md:mt-8" />
           <p className="text-center text-xs sm:text-sm my-6 md:my-8 leading-relaxed px-2">
             © 2025 ICPEP SE - NCR. All rights reserved. | Creating Pioneers for

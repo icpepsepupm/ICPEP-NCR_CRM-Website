@@ -55,10 +55,11 @@ function NavBar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link to="https://passport-icpepsencr.duckdns.org">
-              <a className="hidden md:inline-flex items-center mr-4 rounded-lg border border-border/60 bg-secondary/40 px-3 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-secondary/60 transition-colors">
-                Login
-              </a>
+            <Link
+              to="https://passport-icpepsencr.duckdns.org"
+              className="hidden md:inline-flex items-center mr-4 rounded-lg border border-border/60 bg-secondary/40 px-3 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-secondary/60 transition-colors"
+            >
+              Login
             </Link>
 
             <button
