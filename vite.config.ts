@@ -6,6 +6,10 @@ import { defineConfig } from "vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  assetsInclude: ["**/*.gltf", "**/*.glb"],
+  server: {
+    host: true, // Enable network access
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

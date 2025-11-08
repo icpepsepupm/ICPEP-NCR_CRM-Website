@@ -10,8 +10,8 @@ function HomePage() {
         <LetterGlitch
           glitchColors={["#a2ffe3", "#60ff83", "#7ff0fe"]}
           glitchSpeed={75}
-          centerVignette={true}
-          outerVignette={true}
+          centerVignette={false}
+          outerVignette={false}
           smooth={true}
           characters="ICPEP.se NCR"
         />

@@ -1,16 +1,25 @@
-import { lazy, Suspense } from "react";
-const Embed3DModel = lazy(() => import("../components/Embed3DModel"));
 import CountUp from "../components/CountUp";
+import PictureBox from "../components/PictureBox";
 
 function Hero() {
   return (
-    <div className="h-screen text-foreground pt-20 flex flex-col md:flex-row items-center justify-center m-auto px- md:px-8 gap-8 md:gap-0 text-center md:text-left">
-      <div className="w-full md:w-1/2">
-        <div className="relative w-full h-64 sm:h-80 md:h-[80vh]  space-y-8 md:space-y-0">
-          <Suspense fallback={null}>
-            <Embed3DModel />
-          </Suspense>
-        </div>
+    <div className="min-h-screen text-foreground pt-16 pb-8 md:pt-20 md:pb-0 flex flex-col md:flex-row items-center justify-center m-auto px-4 md:px-8 gap-6 md:gap-0 text-center md:text-left">
+      <div className="w-full md:w-1/2 flex justify-center items-center px-2 sm:px-4 md:px-0">
+        <PictureBox
+          images={[
+            "/memories/0.jpg",
+            "/memories/1.jpg",
+            "/memories/2.jpg",
+            "/memories/3.jpg",
+            "/memories/4.jpg",
+            "/memories/5.jpg",
+            "/memories/6.jpg",
+            "/memories/7.jpg",
+          ]}
+          alt="ICpEP.se NCR Hero Image"
+          className="h-[220px] sm:h-[300px] md:h-[400px] w-full max-w-[90%] sm:max-w-[400px] md:max-w-[600px]"
+          interval={3000}
+        />
       </div>
       <div>
         <div className="w-full md:ml-0 max-w-xl space-y-3 md:space-y-4">
