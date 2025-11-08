@@ -43,7 +43,7 @@ export default defineConfig({
               return "motion";
             }
             // Fallback: group remaining node_modules by top-level package
-            const match = id.match(/node_modules\/(?:\.pnpm\/)?([^\/]+)/);
+            const match = id.match(/node_modules\/(?:\.pnpm\/)?([^/]+)/);
             if (match) return `pkg-${match[1]}`;
             return "vendor";
           }
