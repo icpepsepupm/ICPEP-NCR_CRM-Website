@@ -6,6 +6,10 @@ import { defineConfig } from "vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  assetsInclude: ["**/*.gltf", "**/*.glb"],
+  server: {
+    host: true, // Enable network access
+  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -39,7 +43,7 @@ export default defineConfig({
               return "motion";
             }
             // Fallback: group remaining node_modules by top-level package
-            const match = id.match(/node_modules\/(?:\.pnpm\/)?([^\/]+)/);
+            const match = id.match(/node_modules\/(?:\.pnpm\/)?([^/]+)/);
             if (match) return `pkg-${match[1]}`;
             return "vendor";
           }

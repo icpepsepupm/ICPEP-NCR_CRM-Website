@@ -55,12 +55,14 @@ function NavBar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link
-              to="https://passport-icpepsencr.duckdns.org"
+            <a
+              href="https://passport-icpepsencr.duckdns.org"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:inline-flex items-center mr-4 rounded-lg border border-border/60 bg-secondary/40 px-3 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-secondary/60 transition-colors"
             >
               Login
-            </Link>
+            </a>
 
             <button
               aria-label="Toggle menu"
@@ -123,7 +125,9 @@ function NavBar() {
                 );
               })}
               <a
-                href="#login"
+                href="https://passport-icpepsencr.duckdns.org"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="px-4 py-3 text-sm text-foreground/80 hover:text-foreground transition-colors"
               >

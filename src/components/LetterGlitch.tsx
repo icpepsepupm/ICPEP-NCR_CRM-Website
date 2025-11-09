@@ -108,6 +108,9 @@ const LetterGlitch = ({
 
     if (context.current) {
       context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
+      context.current.font = `${fontSize}px "Courier New", Courier, "Lucida Console", Monaco, monospace`;
+      context.current.textBaseline = "top";
+      context.current.textAlign = "left";
     }
 
     const { columns, rows } = calculateGrid(rect.width, rect.height);
@@ -120,8 +123,9 @@ const LetterGlitch = ({
     const ctx = context.current;
     const { width, height } = canvasRef.current!.getBoundingClientRect();
     ctx.clearRect(0, 0, width, height);
-    ctx.font = `${fontSize}px monospace`;
+    ctx.font = `${fontSize}px "Courier New", Courier, "Lucida Console", Monaco, monospace`;
     ctx.textBaseline = "top";
+    ctx.textAlign = "left";
 
     letters.current.forEach((letter, index) => {
       const x = (index % grid.current.columns) * charWidth;
@@ -197,6 +201,11 @@ const LetterGlitch = ({
     if (!canvas) return;
 
     context.current = canvas.getContext("2d");
+    if (context.current) {
+      context.current.font = `${fontSize}px "Courier New", Courier, "Lucida Console", Monaco, monospace`;
+      context.current.textBaseline = "top";
+      context.current.textAlign = "left";
+    }
     resizeCanvas();
     animate();
 
