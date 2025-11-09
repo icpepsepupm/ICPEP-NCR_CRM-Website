@@ -1,6 +1,7 @@
 import { Separator } from "@/components/ui/separator";
 import { FaFacebookSquare } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -36,24 +37,27 @@ const Footer = () => {
               Quick Links
             </h2>
             <nav className="flex flex-col gap-2 sm:gap-3">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="text-xs sm:text-sm md:text-base hover:underline hover:text-foreground transition-all duration-300 w-fit"
+                aria-label="ICpEP.SE NCR Home"
               >
                 Home
-              </a>
-              <a
-                href="/about"
+              </Link>
+              <Link
+                to="/about"
                 className="text-xs sm:text-sm md:text-base hover:underline hover:text-foreground transition-all duration-300 w-fit"
+                aria-label="ICpEP.SE NCR About"
               >
                 About
-              </a>
-              <a
-                href="/join-us"
+              </Link>
+              <Link
+                to="/join-us"
                 className="text-xs sm:text-sm md:text-base hover:underline hover:text-foreground transition-all duration-300 w-fit"
+                aria-label="ICpEP.SE NCR Join Us"
               >
                 Join Us
-              </a>
+              </Link>
             </nav>
           </section>
 
